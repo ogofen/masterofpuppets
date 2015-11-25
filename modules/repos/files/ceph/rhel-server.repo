@@ -1,0 +1,35 @@
+[rhel-7-server]
+name=Red Hat Enterprise Linux $releasever - $basearch - Server
+baseurl=http://download.lab.bos.redhat.com/released/RHEL-7/7.1/Server/$basearch/os/
+enabled=1
+gpgcheck=0
+
+[rhel-7-server-opt]
+name=Red Hat Enterprise Linux $releasever - $basearch - Server Optional
+baseurl=http://download.lab.bos.redhat.com/released/RHEL-7/7.1/Server-optional/$basearch/os/
+enabled=1
+gpgcheck=0
+
+[rhel-7-ha]
+name=Red Hat Enterprise Linux $releasever - $basearch - HA
+baseurl=http://download.lab.bos.redhat.com/released/RHEL-7/7.1/Server/$basearch/os/addons/HighAvailability
+enabled=1
+gpgcheck=0
+
+[rhel-7-z]
+name=Red Hat Enterprise Linux $releasever - $basearch - Z-Stream
+baseurl=http://download.lab.bos.redhat.com/rel-eng/repos/rhel-7.1-z/$basearch
+enabled=1
+gpgcheck=0
+
+[rhel-7-rhscl]
+name=Red Hat Enterprise Linux RHSCL 1.2
+baseurl=http://download.lab.bos.redhat.com/released/RHSCL/1.2/RHEL-7/Server/x86_64/os/
+enabled=1
+gpgcheck=0
+
+[rhelosp-rhel-7-common]
+name=RHEL 7 Common
+baseurl=http://ayanami.boston.devel.redhat.com/poodles/rhel-7-common/7.1/latest/RHEL-7-COMMON/$basearch/os/
+enabled=1
+gpgcheck=0

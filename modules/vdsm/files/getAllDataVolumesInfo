@@ -1,0 +1,53 @@
+#!/bin/zsh
+uuidsize=35
+spuuid=`vdsClient -s 0 getConnectedStoragePoolsList`
+sduuid=`vdsClient -s 0 getStorageDomainsList $spuuid`
+sdlines=`echo $sduuid|wc -l`
+#echo $sdlines
+typeset -A imuuid
+typeset -A voluuid
+start=1
+volnum=0
+imnum=0
+for (( x=1;x<=$sdlines;x++)) do
+    end=$[$start+$uuidsize]
+    sduuidcurr=$sduuid[$start,$end]
+    if [ -z $sduuidcurr ]; then
+        continue
+    fi
+    imuuid=`vdsClient -s 0 getImagesList $sduuidcurr $spuuid`
+    imlines=`echo $imuuid|wc -l`
+    startim=1
+    for ((imline=1;imline<=$imlines;imline++)) do
+        endim=$[$startim+$uuidsize]
+        imuuidcurr=$imuuid[$startim,$endim]
+        if [ -z $imuuidcurr ]; then
+            continue
+        fi
+        imnum=$[$imnum+1]
+        voluuidlist=`vdsClient -s 0 getVolumesList $sduuidcurr $spuuid $imuuidcurr`
+        voluuid=`echo $voluuidlist | gawk {'print $1'}`
+        volines=`echo $voluuid|wc -l`
+        startim=$[$endim+2]
+        startvol=1
+        for (( voline=1;voline<=$volines;voline++)) do
+            endvol=$[$startvol+$uuidsize]
+            V=$voluuid[$startvol,$endvol]
+            if [ -z $V ]; then
+                continue
+            fi
+            VOL=`vdsClient -s 0 getVolumeInfo $sduuidcurr $spuuid $imuuidcurr $V`
+            OVF=`echo $VOL|grep OVF_STORE`
+            if [ -z $OVF ]; then
+                echo $VOL
+                volnum=$[$volnum+1]
+                echo
+            fi
+            startvol=$[$endvol+2]
+        done
+    done
+    start=$[$end+2]
+done
+echo "StorageDomains count:"$sdlines
+echo "Total images on storagedomains:"$imnum
+echo "Total number of volumes:"$volnum

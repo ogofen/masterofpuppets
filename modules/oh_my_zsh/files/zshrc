@@ -1,0 +1,21 @@
+if [ -f /root/server-actions ];then
+    source /root/server-actions
+fi
+export ZSH=/root/oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+plugins=(git)
+setopt extended_glob
+set agnoster
+export DISABLE_AUTO_TITLE=true
+autoload -Uz promptinit
+promptinit
+prompt adam1
+# User specific aliases and functions
+alias vi="vim"
+alias monitor="/root/.monitor"
+alias yum="noglob yum"
+alias find="noglob find"
+# Customize to your needs...
+HISTSIZE=5000 # session history size
+SAVEHIST=1000 # saved history
+HISTFILE=~/.zshistory # history file

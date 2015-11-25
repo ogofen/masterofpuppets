@@ -1,0 +1,18 @@
+[rhel-source]
+name=Red Hat Enterprise Linux $releasever - $basearch - Source
+baseurl=http://download.eng.tlv.redhat.com/rel-eng/repos/rhel-7.1-candidate/x86_64/  
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[rhel-71-z]
+name=RHEL_7_1_Z
+baseurl=http://download.eng.bos.redhat.com/rel-eng/repos/rhel-7.1-z/x86_64/
+enabled=0
+gpgcheck=0
+
+[rhevh-candidate]
+name=rhel-candidate
+baseurl=http://download.lab.bos.redhat.com/rel-eng/repos/rhevh-rhel-7.2-candidate/x86_64/
+enabled=1
+gpgcheck=0

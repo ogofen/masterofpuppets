@@ -1,0 +1,13 @@
+[patternfly-patternfly1]
+name=Copr repo for patternfly1 owned by patternfly
+baseurl=http://copr-be.cloud.fedoraproject.org/results/patternfly/patternfly1/epel-7-x86_64/
+skip_if_unavailable=True
+gpgcheck=0
+enabled=0
+
+[rhel7]
+name=rhel7
+baseurl=http://download.eng.tlv.redhat.com/pub/rhel/rel-eng/latest-RHEL-7/compose/Server/x86_64/os/
+enabled=0
+gpgcheck=0
+

@@ -1,0 +1,17 @@
+# .bashrc
+
+# User specific aliases and functions
+if [ -f /root/server-actions ]; then
+    source /root/server-actions
+fi
+alias vi="vim"
+alias monitor="/root/.monitor"
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias editlatest="vi /etc/puppet/modules/server-action/manifests/latest.pp"
+set vb
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi

@@ -1,0 +1,17 @@
+[Server-RH7-CEPH-OSD-1.3]
+name=Server-RH7-CEPH-OSD-1.3
+baseurl=http://download.lab.bos.redhat.com/rel-eng/RHCeph/1.3-RHEL-7/2015-06-24.1/Server-RH7-CEPH-OSD-1.3/$basearch/os
+gpgcheck=0
+enabled=1
+
+[Server-RH7-CEPH-OSD-1.3-debug]
+name=Server-RH7-CEPH-OSD-1.3 Debuginfo
+baseurl=http://download.lab.bos.redhat.com/rel-eng/RHCeph/1.3-RHEL-7/2015-06-24.1/Server-RH7-CEPH-OSD-1.3/$basearch/debuginfo
+gpgcheck=0
+enabled=0
+
+[Server-RH7-CEPH-OSD-1.3-sources]
+name=Server-RH7-CEPH-OSD-1.3 Sources
+baseurl=http://download.lab.bos.redhat.com/rel-eng/RHCeph/1.3-RHEL-7/2015-06-24.1/Server-RH7-CEPH-OSD-1.3/source
+gpgcheck=0
+enabled=0

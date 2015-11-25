@@ -1,0 +1,7 @@
+
+[qa-latest]
+name=QA Latest build
+baseurl=http://bob.eng.lab.tlv.redhat.com/builds/vt15/el6/
+enabled=1
+gpgcheck=0
+

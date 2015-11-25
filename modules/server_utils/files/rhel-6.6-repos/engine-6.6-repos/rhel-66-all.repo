@@ -1,0 +1,26 @@
+[rhel-66]
+name=RHEL_66
+baseurl=http://download.eng.bos.redhat.com/released/RHEL-6/6.6/Server/x86_64/os/
+enabled=1
+gpgcheck=0
+
+[rhel-66-optional]
+name=RHEL_66_OPTIONAL
+baseurl=http://download.eng.bos.redhat.com/released/RHEL-6/6.6/Server/optional/x86_64/os/
+enabled=1
+gpgcheck=0
+
+[jboss]
+name=jboss
+baseurl=http://download.devel.redhat.com/released/JBEAP-6/6.3.0/composes/JBEAP-6.3.0-RHEL-6/Server/x86_64/os/
+enabled=1
+gpgcheck=0
+http_caching=all
+
+[patternfly-patternfly1]
+name=Copr repo for patternfly1 owned by patternfly
+baseurl=http://copr-be.cloud.fedoraproject.org/results/patternfly/patternfly1/epel-6-$basearch/
+skip_if_unavailable=True
+gpgcheck=0
+enabled=1
+

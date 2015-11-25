@@ -1,0 +1,10 @@
+#!/bin/bash
+spuuid=`vdsClient -s 0 getConnectedStoragePoolsList`
+sduuid=`vdsClient -s 0 getStorageDomainsList $spuuid`
+counter=0
+for sd in $sduuid
+do
+    vdsClient -s 0 getStorageDomainInfo $sd
+    counter=$[$counter+1]
+done
+echo "StorageDomains count:"$counter

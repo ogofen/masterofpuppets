@@ -1,0 +1,12 @@
+[rhel-server]
+Name=RHEL server
+enabled=0
+#baseurl=http://download.eng.bos.redhat.com/rel-eng/repos/rhel-7.0-z/x86_64/repodata/repomd.xml
+baseurl=http://download.eng.tlv.redhat.com/pub/rhel/released/RHEL-7/7.0/Server/x86_64/os/
+gpgcheck=0
+
+[rhev-7-hypervisor]  
+name=RHEVH_7  
+baseurl=http://download.lab.bos.redhat.com/rel-eng/repos/rhevh-rhel-7.0-candidate/x86_64/  
+enabled=1  
+gpgcheck=0  

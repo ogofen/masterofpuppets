@@ -1,0 +1,6 @@
+[art-build]
+name=art-build
+baseurl=http://art-build-srv.qa.lab.tlv.redhat.com/extra
+enabled=0
+priority=99
+gpgcheck=0

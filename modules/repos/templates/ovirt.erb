@@ -1,0 +1,14 @@
+<%# /etc/puppet/modules/repos/templates/ovirt.erb %>
+[qa-latest]
+name=QA Latest build
+baseurl=http://bob.eng.lab.tlv.redhat.com/builds/3.6/latest_3.6/latest_3.6.0/snapshot/rpm/el<%= @operatingsystemmajrelease %>/
+enabled=1
+gpgcheck=0
+
+[glusterfs-epel]
+name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
+baseurl=http://download.gluster.org/pub/gluster/glusterfs/3.5/LATEST/RHEL/epel-7/x86_64/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
+

@@ -1,0 +1,14 @@
+[qa-latest]
+name=QA Latest build
+baseurl=http://bob.eng.lab.tlv.redhat.com/builds/3.6/3.6.0/3.6.0-1/snapshot.latest/rpm/el6Server/
+enabled=1
+gpgcheck=0
+
+[glusterfs-epel-latest]
+name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
+baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/RHEL/epel-7/x86_64/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
+
+

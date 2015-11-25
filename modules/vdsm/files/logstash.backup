@@ -1,0 +1,12 @@
+#!/bin/bash
+FLAG=`ps -aux`
+FLAG=`echo $FLAG | grep java`
+echo $FLAG
+if [[ "$FLAG" == '' ]]
+then
+    sh /opt/logstash/bin/logstash agent -f /opt/logstash.conf &
+    echo "executing"
+else
+    echo 'exit'
+fi
+

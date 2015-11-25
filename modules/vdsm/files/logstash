@@ -1,0 +1,4 @@
+#!/bin/bash
+A=`ps aux |grep java.*logstash | grep -v grep | gawk {'print $2'}`
+kill -9 $A
+sh /opt/logstash/bin/logstash agent -f /opt/logstash.conf &

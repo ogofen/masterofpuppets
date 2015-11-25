@@ -1,0 +1,5 @@
+[rhel-optional]
+Name=RHEL Optional
+enabled=1
+baseurl=http://download.eng.tlv.redhat.com/pub/rhel/released/RHEL-7/7.1/Server-optional/x86_64/os/
+gpgcheck=0

@@ -1,0 +1,5 @@
+[qa-latest]
+name=QA Latest build
+baseurl=http://bob.eng.lab.tlv.redhat.com/builds/vt13.3/el7/
+enabled=1
+gpgcheck=0

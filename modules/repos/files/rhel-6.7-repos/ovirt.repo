@@ -1,0 +1,6 @@
+[qa-latest]
+name=QA Latest build
+baseurl=http://bob.eng.lab.tlv.redhat.com/builds/3.6/latest_3.6/latest_3.6.0/rpm.1428473516/el6/
+enabled=1
+gpgcheck=0
+

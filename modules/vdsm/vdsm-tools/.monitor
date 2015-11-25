@@ -1,0 +1,22 @@
+#!/bin/bash
+### monitor vdsm-host
+FileSize=0
+export flag=$(which ack)
+if [ ! $flag ]; then
+	echo ack command has not been found,exiting...
+	echo please install ack package via \"yum install ack\"
+	exit
+fi
+tail -s .5 -n 1 -f /var/log/vdsm/vdsm.log|ack --passthru --color  " [a-z][a-z]{2,6}[A-Z][a-zA-Z]{2,15}|\(spUUI.*\)" --color-match="bold blue"|ack --passthru --color  "ERROR|Traceback" --color-match="bold red"|ack --passthru --color  "DEBUG|INFO" --color-match="bold white"|ack --passthru --color  "[A-Z][a-z]{2,11}\.[A-Z][a-zA-Z]{2,15}|/.Owner" --color-match="bold cyan"|ack --passthru --color  "\[[0-9a-z]{6,12}\]" --color-match="bold magenta"|ack --passthru --color  "2014.{15}|Thread.{3,4}|Dummy.{3,5}" --color-match="bold yellow" &
+while true; do
+    TMPFileSize=`ls -la /var/log/vdsm/vdsm.log | gawk {'print $5'}`
+    if [ $TMPFileSize -ge $FileSize ]; then
+       sleep 360
+       continue
+    fi
+    pkill -9 tail
+    pkill -9 ack
+    tail -s .5 -n 1 -f /var/log/vdsm/vdsm.log|ack --passthru --color  " [a-z][a-z]{2,6}[A-Z][a-zA-Z]{2,15}|\(spUUI.*\)" --color-match="bold blue"|ack --passthru --color  "ERROR|Traceback" --color-match="bold red"|ack --passthru --color  "DEBUG|INFO" --color-match="bold white"|ack --passthru --color  "[A-Z][a-z]{2,11}\.[A-Z][a-zA-Z]{2,15}|/.Owner" --color-match="bold cyan"|ack --passthru --color  "\[[0-9a-z]{6,12}\]" --color-match="bold magenta"|ack --passthru --color  "2014.{15}|Thread.{3,4}|Dummy.{3,5}" --color-match="bold yellow" &
+    FileSize=$TMPFileSize
+    echo --------------------- now -------------------------------------------
+done

@@ -1,0 +1,25 @@
+#!/bin/bash
+alias puppet-vdsm-clean='echo "1">cleanflag;puppet agent -t'
+
+alias less!=/root/less.sh
+function set_dhcp_trace {
+    ps -e | grep strace > /root/flag
+    if [ -n "`ps -e | grep strace`" ];then
+        echo "strace is on and gathering dhclient's stderr" 
+        return
+    fi
+    if [ ! -n "`ps -e | grep dhclient`" ];then
+        echo dhclient is dead
+        return
+    fi
+    if [ ! -e /root/trace ];then
+            mkdir /root/trace 2>/dev/null
+            echo "0">/root/trace/trace_num_curr
+    fi
+    TRACE_NUM=`cat /root/trace/trace_num_curr`
+    TRACE_NUM=$[$TRACE_NUM +1]
+    echo $TRACE_NUM>/root/trace/trace_num_curr
+    dhclient_id=`ps -e | grep dhclient | gawk {'print $1'}`
+    strace -f -p $dhclient_id -o "/root/trace/dhclient_trace_$TRACE_NUM.log" &
+    disown
+}
