@@ -1,6 +1,6 @@
 class repos::rhevm {
-   $path="http://bob.eng.lab.tlv.redhat.com/builds/3.6/3.6.0-20/rhev-release-3.6.0-20-001.noarch.rpm"
-    $rhev_release="rhev-release-3.6.0-20-001"
+   $path="http://bob.eng.lab.tlv.redhat.com/builds/3.6/3.6.1-2/rhev-release-3.6.1-2-001.noarch.rpm"
+    $rhev_release="rhev-release-3.6.1-2-001"
     if $engine==rhevm {
     exec { "yum install ovirt-master":
         command => "/usr/bin/yum install -y $path",

@@ -1,0 +1,47 @@
+<%# /etc/puppet/modules/server-action/templates/cleanup.erb %>
+[environment:default]
+OVESETUP_CORE/remove=bool:True
+OVESETUP_CONFIG/remoteEngineSetupStyle=none:None
+OVESETUP_CONFIG/firewallManager=str:iptables
+OVESETUP_CONFIG/remoteEngineHostRootPassword=none:None
+OVESETUP_CONFIG/remoteEngineHostSshPort=none:None
+OVESETUP_CONFIG/fqdn=str:<%= @fqdn %>
+OVESETUP_REMOVE/confirmUninstallGroups=bool:True
+OVESETUP_REMOVE/removeAll=bool:True
+OVESETUP_REMOVE/removeOptions=multi-str:
+OVESETUP_REMOVE/enabledFileGroups=str:,ca_pki,versionlock,ca_config,core,ssl
+OVESETUP_DB/database=str:engine
+OVESETUP_DB/secured=bool:False
+OVESETUP_DB/host=str:localhost
+OVESETUP_DB/user=str:engine
+OVESETUP_DB/securedHostValidation=bool:False
+OVESETUP_DB/password=str:p218Ogy7oVgoRoXl4f4vQF
+OVESETUP_DB/port=str:5432
+OVESETUP_ENGINE_CORE/enable=bool:False
+OVESETUP_CORE/engineStop=bool:True
+OVESETUP_CONFIG/isoDomainMountPoint=none:None
+OVESETUP_CONFIG/isoDomainName=none:None
+OVESETUP_REMOVE/engineDatabase=bool:True
+OVESETUP_REMOVE/removeEngine=bool:True
+OVESETUP_APACHE/configureRootRedirectionDefault=bool:True
+OVESETUP_CONFIG/jbossHome=str:/usr/share/jbossas
+OVESETUP_CONFIG/validFirewallManagers=str:iptables
+OVESETUP_RPMDISTRO/enginePackages=str:rhevm
+OVESETUP_RPMDISTRO/engineSetupPackages=str:rhevm-setup
+OVESETUP_RPMDISTRO/upgradeYumGroup=str:rhevm35
+OVESETUP_WSP_RPMDISRO_PACKAGES=str:rhevm-websocket-proxy
+OVESETUP_WSP_RPMDISRO_PACKAGES_SETUP=str:rhevm-setup-plugin-websocket-proxy
+OVESETUP_CORE/generatedByVersion=str:3.5.0
+OVESETUP_CONFIG/firewallManager=str:iptables
+OVESETUP_CONFIG/fqdn=str:<%= @fqdn %>
+OVESETUP_ENGINE_CORE/enable=bool:True
+OVESETUP_SYSTEM/nfsConfigEnabled_legacyInPostInstall=bool:False
+OVESETUP_CONFIG/isoDomainMountPoint=none:None
+OVESETUP_CONFIG/isoDomainSdUuid=none:None
+OVESETUP_CONFIG/isoDomainName=none:None
+OVESETUP_CONFIG/isoDomainStorageDir=none:None
+OVESETUP_CONFIG/isoDomainExists=bool:False
+OVESETUP_APACHE/configured=bool:True
+OVESETUP_RHEVM_SUPPORT/configureRedhatSupportPlugin=bool:False
+OVESETUP_CONFIG/websocketProxyConfig=bool:True
+OVESETUP_ENGINE_CONFIG/fqdn=str:<%= @fqdn %>

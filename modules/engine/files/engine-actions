@@ -1,0 +1,38 @@
+#!/bin/bash
+function add_host {
+  curl --insecure --header "Content-Type:application/xml" -X POST \
+  -d @/root/Rest-Api-Qe/$1.xml  --user "admin@internal:qum5net" \
+  https://$HOSTNAME/api/hosts
+  }
+function engine-action {
+    if [ -z $1 ];then
+        echo "engine-action needs 'clean' or 'setup' value"
+        exit
+    fi
+    if [ $1 = 'clean' ];then
+        engine-cleanup --config=/root/cleanup.conf
+    fi
+    if [ $1 = 'setup' ];then
+        engine-setup --config=/root/config.setup
+    fi
+}
+function curl_nfs {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/NFS_StorageDomain.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/storagedomains
+}
+function curl_iscsidiscover {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/Discover_iSCSiTargets.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/hosts/$1/iscsidiscover
+}
+function curl_iscsilogin {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/Discover_iSCSi.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/hosts/$1/iscsilogin
+}
+function curl_unregisterdstoragedomainsdiscovery {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/Unregistered.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/hosts/$1/unregisteredstoragedomainsdiscover
+}
+function curl_importiscsi {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/ImportIscsi.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/storagedomains
+}
+function curl_importfcp {
+    curl --insecure --header "Content-Type:application/xml" -X POST  -d @/root/Rest-Api-Qe/ImportFcp.xml  --user "admin@internal:qum5net" https://$HOSTNAME/api/storagedomains
+}
+alias less!=/root/less.sh
+alias list_hosts_id='python /root/Py_Sdk_Qe/listHostsID.py'

@@ -42,13 +42,6 @@ baseurl=http://download.eng.tlv.redhat.com/pub/rhel/rel-eng/RHEL-6.7-20150624.0/
 enabled=1
 gpgcheck=0
 
-[jboss]
-name=jboss
-baseurl=http://download.devel.redhat.com/released/JBEAP-6/6.3.0/composes/JBEAP-6.3.0-RHEL-6/Server/x86_64/os/
-enabled=1
-gpgcheck=0
-http_caching=all
-
 [ruby193]
 name=ruby193
 baseurl=http://mirror.centos.org/centos/6/SCL/x86_64/
